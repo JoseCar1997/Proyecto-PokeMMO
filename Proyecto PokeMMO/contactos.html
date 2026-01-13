@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Jose y Sergio">
+    <title>Contacta con nosotros</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        label, input[type="submit"], button {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], 
+        input[type="email"], 
+        input[type="tel"], 
+        input[type="number"], 
+        textarea, 
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .inline-group {
+            margin-bottom: 15px;
+        }
+        .inline-group label {
+            display: inline;
+            margin-right: 20px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <header>
+         <h1>Contactos</h1>
+        <nav>
+            <a href="Indice.html">Pagina Principal</a>
+            <a href="Regiones/Kanto.html">Kanto</a>
+            <a href="Regiones/Johto.html">Johtto</a>
+            <a href="Regiones/Hoenn.html">Hoenn</a>
+            <a href="Regiones/Sinnoh.html">Sinnoh</a>
+            <a href="Regiones/Teselia.html">Teselia</a>
+            <a href="videos.html">Videos</a>
+            <a href="contactos.html">Contactos</a>
+        </nav>
+
+    </header>
+    <br><br>
+    <main>
+    <form action="/enviament-formulari" method="post">
+        
+        <label for="nom">Nombre Completo:</label>
+        <input type="text" id="nom" name="nom" placeholder="Escribe tu nombre aquí" required> 
+        
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" placeholder="ejemplo@gmail.com" required>
+
+        <label for="telefon">Teléfono (opcional):</label>
+        <input type="tel" id="telefon" name="telefon" placeholder="600-000-000">
+
+        <label for="edat">Edad (Mínimo 18):</label>
+        <input type="number" id="edat" name="edat" min="18" max="99" value="18">
+
+        <label for="data-preferent">Datos Preferentes de Contactos:</label>
+        <input type="date" id="data-preferent" name="data-preferent">
+
+        <label for="pokemon-preferit">Tu Pokémon Preferido</label>
+        <input type="text" id="pokemon-preferit" name="pokemon-preferit">
+
+        <label for="satisfaccio">Nivel de Satisfación</label>
+        <input type="range" id="satisfaccio" name="satisfaccio" min="0" max="100" value="50" disabled>
+        
+        <input type="hidden" name="id_usuari" value="12345"> 
+        
+        <hr>
+
+        <fieldset>
+            <legend>Motivo del Contacto (*):</legend>
+            <div class="inline-group">
+                <input type="radio" id="info" name="motiu" value="informacio" checked required>
+                <label for="info">Solicitar Información</label><br>
+                <input type="radio" id="suport" name="motiu" value="suport">
+                <label for="suport">Soporte Técnico</label><br>
+                <input type="radio" id="altres" name="motiu" value="altres">
+                <label for="altres">Otras Consultas</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Preferéncias de Comunicación:</legend>
+            <div class="inline-group">
+                <input type="checkbox" id="newsletter" name="preferencies" value="newsletter">
+                <label for="newsletter">Quiero recibir futuras noticias.</label><br>
+                <input type="checkbox" id="privacitat" name="accepta_privacitat" value="si" required checked>
+                <label for="privacitat">He leído y acepto la política de privacidad (*)</label> 
+            </div>
+        </fieldset>
+
+        <label for="pais">Tu País:</label>
+        <select id="pais" name="pais" required>
+            <option value="">-- Elige un país --</option>
+            <option value="es">España</option>
+            <option value="fr">Francia</option>
+            <option value="de">Alemania</option>
+            <option value="us">Estados Unidos</option>
+        </select>
+
+        <label for="missatge">Tu Mensaje (*):</label>
+        <textarea id="missatge" name="missatge" rows="6" placeholder="Escribe aquí tu consulta detalladamente..." required></textarea>
+
+        <hr>
+
+        <input type="submit" value="Enviar Formulario de Contactos">
+        
+    </form>
+    </main>
+</body>
+
+ <footer>
+
+        <p>Todos los creditos a GameFreak<small><br>Hecho por Fans: Jose y Sergio</small></p>
+        <br><br>
+    </footer>
+</html>
