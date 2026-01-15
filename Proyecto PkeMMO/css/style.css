@@ -1,0 +1,478 @@
+
+/* He añadido una fuente personalizada com tematica de pokemon */
+
+@font-face {
+    font-family: 'PokemonFont'; /* El nombre que tú quieras darle */
+    src: url('../fonts/Pokemon\ Classic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PokemonTitulo'; /* El nombre que tú quieras darle */
+    src: url('../fonts/Pokemon\ Classic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, sans-serif;
+}
+
+/* 2. Selector de elementos y 9. Linear-gradient */
+body {
+    /* 9. linear-gradient: Combinado con la imagen de fondo */
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../Imágenes/fondo.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* 1. display (block) */
+    display: block; 
+    padding: 3%;
+}
+div p {
+
+
+}
+
+/* 8. Text-shadow: Resalte del título */
+h1 {
+    text-align: center;
+    padding: 1px;
+    margin: 0px auto 0px;
+    color: white; 
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); 
+    width: 100%;
+    font-family: 'PokemonTitulo', Arial, sans-serif; 
+    letter-spacing: 2px;
+}
+
+h1 img {
+    height: 200px;
+    width: auto;
+    vertical-align: middle;
+    padding-top: 0%;
+    margin-right: 0 0; 
+    filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.5));
+}
+h2{
+    color: red;
+    background-color: black;
+    text-align: center;
+    padding: 2%;
+    font-family: 'PokemonTitulo', Arial, sans-serif; 
+    letter-spacing: 3px; 
+}
+h3{
+    text-align: center;
+    padding: 2%;
+    color: yellow;
+    text-shadow: #444;
+    text-decoration:solid;
+    font-family: 'PokemonTitulo', Arial, sans-serif; 
+    letter-spacing: 3px;
+
+}
+
+/* ASIDE (MAPA) */
+aside {
+    /* 3. float y clear: Añadimos clear: both para que ignore los floats del logo y se centre */
+    clear: both; 
+    float: none;           
+    
+    /* Centrado horizontal del bloque aside */
+    margin: 40px auto;     
+    
+    /* 1. display flex para centrar la imagen dentro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;           
+    max-width: 900px;      
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    
+    /* 6. border-radius y 7. box-shadow */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+aside img {
+    clear: both;
+    width: 100%; 
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+ul > li {
+    list-style-type: square;
+    margin-bottom: 5px;
+}
+
+input[type="submit"] {
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* 7. box-shadow */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3); 
+}
+
+p::first-letter {
+    font-size: 20px;
+    color: rgb(230, 190, 13);
+    font-weight: bold;
+}
+
+#logo {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+#Inicio {
+    /* 3. float: left */
+    float: left; 
+    margin: 1% 15%;
+    /* 2. position: relative */
+    position: relative; 
+    background-color: rgba(31, 32, 31, 0.507);
+    color: white;
+    padding: 2%;
+}
+
+.region {
+    max-width: 800px;           /* Evita que las líneas sean demasiado largas y cansen la vista */
+    margin: 20px auto;          /* Centra el bloque */
+    padding: 25px;
+    background-color: #f9f9f9;  /* Un blanco roto para que no brille demasiado */
+    border-radius: 12px;        /* Bordes suaves */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra muy sutil */
+    border-left: 5px solid #ff1f1f; /* Un detalle rojo (estilo Pokédex) */
+}
+
+.region p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;          /* Tamaño cómodo */
+    line-height: 1.7;           /* Espaciado entre líneas (clave para que no "rechine") */
+    color: #333333;             /* Gris oscuro, mejor que negro puro para la vista */
+    letter-spacing: -0.01em;    /* Ajuste fino para fuentes modernas */
+    text-align: justify;        /* Opcional: alinea el texto por ambos lados */
+    hyphens: auto;              /* Corta palabras si es necesario */
+}
+
+.region p strong {
+    color: #cc0000;             /* Rojo oscuro para énfasis sin cansar */
+    font-weight: 600;
+}
+
+.region img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.3);
+}
+
+footer > p {
+    color: #333;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    border: 2px solid aquamarine;
+}
+
+nav a:hover {
+    color: tomato;
+    transition: 0.3s all ease;
+    transform: scale(1.1); 
+}
+
+h1::first-letter {
+    font-size: 150%;
+    color: darkred;
+}
+
+
+nav {
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px; /* 6. border-radius */
+    padding: 20px;
+    
+    /* 1. Posicionament display: flex */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 80%;
+    
+    /* 2. position: relative */
+    position: relative; 
+    margin: 20px auto;
+    
+    /* 7. box-shadow */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
+}
+
+nav a {
+    /* 1. display: inline-block */
+    display: inline-block;
+    text-decoration: none;
+    color: white; 
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease; 
+    background: rgba(0, 0, 0, 0.2);
+}
+
+nav a, .dropbtn {
+    font-family: 'Pokemonfont', sans-serif;
+    font-size: 1rem;
+}
+
+form {
+    /* 10. radial-gradient: Aplicado al fondo del formulario */
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
+    padding: 40px;
+    border-radius: 15px; /* 6. border-radius */
+    
+    /* 11. border-image: Borde decorativo para cumplir requisito */
+    border: 5px solid;
+    border-image: linear-gradient(to right, #444, #888) 1;
+    
+    backdrop-filter: blur(5px);
+    max-width: 600px;
+    margin: 20px auto;
+}
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    /* 1. display block*/
+    display: block; 
+}
+label + input {
+    margin-bottom: 20px;
+}
+
+tr:nth-child(odd) {
+    background-color: salmon;
+}
+tr:nth-child(even) {
+    background-color: silver;
+}
+
+.banner-promo {
+    width: 200px;
+    height: 100px;
+    background-color: gold;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.5s, background-color 0.5s;
+}
+
+.banner-promo:hover {
+    transform: rotate(5deg) scale(1.05);
+    background-color: orange;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+footer p, footer small {
+    color: white !important;
+    font-weight: bold;
+}
+
+/* REGIONES */
+
+.dropdown {
+    position: relative;
+    display: inline-block; 
+}
+
+.dropbtn {
+    background-color: transparent;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+        /* 1. display: inline-block */
+    display: inline-block;
+    text-decoration: none;
+    color: white; 
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease; 
+    background: rgba(0, 0, 0, 0.2);
+    font-family: 'Pokemonfont', sans-serif;
+    font-size: 1rem;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+    border-radius: 8px; 
+    
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; 
+    margin: 0; 
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: tomato;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: tomato;
+}
+
+
+
+/* VIDEOS */
+
+.titulo-videos {
+    margin-top: 30px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3); 
+}
+
+.container-videos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; 
+    padding: 40px;
+    width: 100%;
+}
+
+video {
+    width: 45%; 
+    min-width: 320px; 
+    border: 5px solid white;
+    border-radius: 15px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
+    background-color: #000;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+video:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 15px 30px rgba(255, 0, 0, 0.4); 
+    z-index: 10;
+}
+
+video + p {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* TABLA DE TIPOS */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fff;
+}
+
+thead th {
+    background-color: #000;
+    color: #ffd700;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+tbody td {
+    border: 1px solid #000;
+    padding: 6px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 13px;
+}
+
+tbody td:first-child {
+    font-weight: bold;
+    text-align: left;
+    white-space: nowrap;
+}
+
+table img {
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    margin: 2px;
+}
+
+td img + img {
+    margin-left: 4px;
+}
+
+tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+td:first-child img {
+    margin-right: 6px;
+}
+
+td:nth-child(2) {
+    font-weight: bold;
+    color: #333;
+}
+
+td:nth-child(5) {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 12px;
+    }
+
+    table img {
+        width: 18px;
+        height: 18px;
+    }
+}
