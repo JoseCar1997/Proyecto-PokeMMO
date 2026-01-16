@@ -1,14 +1,14 @@
 /* He añadido una fuente personalizada com tematica de pokemon */
 
 @font-face {
-    font-family: 'Pokemonfont'; /* El nombre que tú quieras darle */
+    font-family: 'Pokemonfont';
     src: url('../fonts/Pokemon\ Classic.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'PokemonTitulo'; /* El nombre que tú quieras darle */
+    font-family: 'PokemonTitulo'; 
     src: url('../fonts/Pokemon\ Solid.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -20,25 +20,17 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
-
-/* 2. Selector de elementos y 9. Linear-gradient */
 body {
-    /* 9. linear-gradient: Combinado con la imagen de fondo */
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../Imágenes/fondo.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    
-    /* 1. display (block) */
+
     display: block; 
     padding: 3%;
 }
 
-div p {
-}
-
-/* 8. Text-shadow: Resalte del título */
 h1 {
     text-align: center;
     padding: 10px;
@@ -59,7 +51,7 @@ h1::first-letter {
 h1 img {
     display: block;      /* Permite que margin: auto funcione */
     margin: 0 auto;      /* La centra perfectamente */
-    max-width: 80%;      /* En móviles ocupará el 80% del ancho, nunca el 100% */
+    max-width: 80%;      /* En moviles ocupará el 80% del ancho, nunca el 100% */
     height: auto !important; /* El !important obliga a ignorar cualquier altura fija anterior */
     filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.5));
 }
@@ -77,7 +69,7 @@ h3 {
     text-align: center;
     padding: 10px;
     color: yellow;
-    text-shadow: 2px 2px 4px #000; /* Ahora sí tiene sombra */
+    text-shadow: 2px 2px 4px #000;
     font-family: 'PokemonTitulo', Arial, sans-serif; 
     letter-spacing: 3px;
 }
@@ -99,27 +91,22 @@ nav {
     background: rgba(255, 255, 255, 0.1); 
     backdrop-filter: blur(10px); 
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px; /* 6. border-radius */
+    border-radius: 20px;
     padding: 20px;
-    
-    /* 1. Posicionament display: flex */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
     max-width: 80%;
     
-    /* 2. position: relative */
     position: relative; 
     margin: 20px auto;
     
-    /* 7. box-shadow */
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     z-index: 999; 
 }
 
 nav a {
-    /* 1. display: inline-block */
     display: inline-block;
     text-decoration: none;
     color: white; 
@@ -153,7 +140,6 @@ nav a:hover {
     border: none;
     cursor: pointer;
     font-weight: bold;
-    /* 1. display: inline-block */
     display: inline-block;
     text-decoration: none;
     color: white; 
@@ -203,12 +189,10 @@ nav a:hover {
 /* FORMULARIO Y ENTRADAS */
 
 form {
-    /* 10. radial-gradient: Aplicado al fondo del formulario */
     background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
     padding: 40px;
-    border-radius: 15px; /* 6. border-radius */
-    
-    /* 11. border-image: Borde decorativo para cumplir requisito */
+    border-radius: 15px;
+
     border: 5px solid;
     border-image: linear-gradient(to right, #444, #888) 1;
     
@@ -224,7 +208,6 @@ input, textarea, select {
     margin-bottom: 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    /* 1. display block*/
     display: block; 
 }
 
@@ -239,7 +222,6 @@ input[type="submit"] {
     border: none;
     font-weight: bold;
     text-transform: uppercase;
-    /* 7. box-shadow */
     box-shadow: 2px 2px 5px rgba(0,0,0,0.3); 
 }
 
@@ -256,10 +238,9 @@ input[type="text"] {
 }
 
 #Inicio {
-    /* 3. float: left */
     float: left; 
     margin: 1% 15%;
-    /* 2. position: relative */
+
     position: relative; 
     background-color: rgba(31, 32, 31, 0.507);
     color: white;
@@ -267,7 +248,7 @@ input[type="text"] {
 }
 
 aside {
-    /* 3. float y clear: Añadimos clear: both para que ignore los floats del logo y se centre */
+
     clear: both; 
     float: none;           
     
@@ -283,8 +264,7 @@ aside {
     max-width: 900px;      
     padding: 15px;
     background: rgba(255, 255, 255, 0.1);
-    
-    /* 6. border-radius y 7. box-shadow */
+
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
@@ -319,27 +299,27 @@ aside img {
 /* REGIONES */
 
 .region {
-    max-width: 800px;           /* Evita que las líneas sean demasiado largas y cansen la vista */
+    max-width: 800px;           /* Evita que las líneas sean demasiado largas*/
     margin: 20px auto;          /* Centra el bloque */
     padding: 25px;
-    background-color: #f9f9f9;  /* Un blanco roto para que no brille demasiado */
-    border-radius: 12px;        /* Bordes suaves */
+    background-color: #f9f9f9;
+    border-radius: 12px;     
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra muy sutil */
-    border-left: 5px solid #ff1f1f; /* Un detalle rojo (estilo Pokédex) */
+    border-left: 5px solid #ff1f1f;
 }
 
 .region p {
     font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;          /* Tamaño cómodo */
-    line-height: 1.7;           /* Espaciado entre líneas (clave para que no "rechine") */
-    color: #333333;             /* Gris oscuro, mejor que negro puro para la vista */
+    font-size: 1.1rem;
+    line-height: 1.7;           /* Espaciado entre líneas */
+    color: #333333; 
     letter-spacing: -0.01em;    /* Ajuste fino para fuentes modernas */
     text-align: justify;        /* Opcional: alinea el texto por ambos lados */
     hyphens: auto;              /* Corta palabras si es necesario */
 }
 
 .region p strong {
-    color: #cc0000;             /* Rojo oscuro para énfasis sin cansar */
+    color: #cc0000;
     font-weight: 600;
 }
 
@@ -398,7 +378,7 @@ video + p {
 }
 
 .video-item p {
-    color: white; /* Para que se lea sobre tu fondo oscuro */
+    color: white;
     font-weight: normal;
     margin-top: 15px;
     line-height: 1.4;
