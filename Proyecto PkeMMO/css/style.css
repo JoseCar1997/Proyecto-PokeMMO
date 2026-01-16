@@ -1,8 +1,7 @@
-
 /* He añadido una fuente personalizada com tematica de pokemon */
 
 @font-face {
-    font-family: 'PokemonFont'; /* El nombre que tú quieras darle */
+    font-family: 'Pokemonfont'; /* El nombre que tú quieras darle */
     src: url('../fonts/Pokemon\ Classic.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -10,17 +9,16 @@
 
 @font-face {
     font-family: 'PokemonTitulo'; /* El nombre que tú quieras darle */
-    src: url('../fonts/Pokemon\ Classic.ttf') format('truetype');
+    src: url('../fonts/Pokemon\ Solid.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
-
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:Arial, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 /* 2. Selector de elementos y 9. Linear-gradient */
@@ -36,32 +34,37 @@ body {
     display: block; 
     padding: 3%;
 }
+
 div p {
-
-
 }
 
 /* 8. Text-shadow: Resalte del título */
 h1 {
     text-align: center;
-    padding: 1px;
-    margin: 0px auto 0px;
+    padding: 10px;
+    margin: 0 auto;
     color: white; 
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7); 
     width: 100%;
     font-family: 'PokemonTitulo', Arial, sans-serif; 
-    letter-spacing: 2px;
+    font-size: clamp(1.5rem, 5vw, 3rem); /* Tamaño dinámico: se encoge en móvil y crece en PC */
+    letter-spacing: 8px;
+}
+
+h1::first-letter {
+    font-size: 150%;
+    color: darkred;
 }
 
 h1 img {
-    height: 200px;
-    width: auto;
-    vertical-align: middle;
-    padding-top: 0%;
-    margin-right: 0 0; 
+    display: block;      /* Permite que margin: auto funcione */
+    margin: 0 auto;      /* La centra perfectamente */
+    max-width: 80%;      /* En móviles ocupará el 80% del ancho, nunca el 100% */
+    height: auto !important; /* El !important obliga a ignorar cualquier altura fija anterior */
     filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.5));
 }
-h2{
+
+h2 {
     color: red;
     background-color: black;
     text-align: center;
@@ -69,18 +72,200 @@ h2{
     font-family: 'PokemonTitulo', Arial, sans-serif; 
     letter-spacing: 3px; 
 }
-h3{
+
+h3 {
     text-align: center;
-    padding: 2%;
+    padding: 10px;
     color: yellow;
-    text-shadow: #444;
-    text-decoration:solid;
+    text-shadow: 2px 2px 4px #000; /* Ahora sí tiene sombra */
     font-family: 'PokemonTitulo', Arial, sans-serif; 
     letter-spacing: 3px;
-
 }
 
-/* ASIDE (MAPA) */
+p::first-letter {
+    font-size: 15px;
+    color: rgb(235, 109, 7);
+    font-weight: bold;
+}
+
+ul > li {
+    list-style-type: square;
+    margin-bottom: 5px;
+}
+
+/* NAVEGACIÓN */
+
+nav {
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px; /* 6. border-radius */
+    padding: 20px;
+    
+    /* 1. Posicionament display: flex */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 80%;
+    
+    /* 2. position: relative */
+    position: relative; 
+    margin: 20px auto;
+    
+    /* 7. box-shadow */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    z-index: 999; 
+}
+
+nav a {
+    /* 1. display: inline-block */
+    display: inline-block;
+    text-decoration: none;
+    color: white; 
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease; 
+    background: rgba(0, 0, 0, 0.2);
+}
+
+nav a, .dropbtn {
+    font-family: 'Pokemonfont', sans-serif;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    color: tomato;
+    transition: 0.3s all ease;
+    transform: scale(1.1); 
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block; 
+}
+
+.dropbtn {
+    background-color: transparent;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    /* 1. display: inline-block */
+    display: inline-block;
+    text-decoration: none;
+    color: white; 
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease; 
+    background: rgba(0, 0, 0, 0.2);
+    font-family: 'Pokemonfont', sans-serif;
+    font-size: 1rem;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+    border-radius: 8px; 
+    z-index: 1000;    /* Lo pone por encima de cualquier otro elemento */
+    top: 100%;        /* Asegura que aparezca justo debajo del botón */
+    left: 0;          /* Lo alinea a la izquierda del botón */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; 
+    margin: 0; 
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: tomato;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: tomato;
+}
+
+/* FORMULARIO Y ENTRADAS */
+
+form {
+    /* 10. radial-gradient: Aplicado al fondo del formulario */
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
+    padding: 40px;
+    border-radius: 15px; /* 6. border-radius */
+    
+    /* 11. border-image: Borde decorativo para cumplir requisito */
+    border: 5px solid;
+    border-image: linear-gradient(to right, #444, #888) 1;
+    
+    backdrop-filter: blur(5px);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    /* 1. display block*/
+    display: block; 
+}
+
+label + input {
+    margin-bottom: 20px;
+}
+
+input[type="submit"] {
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* 7. box-shadow */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3); 
+}
+
+input[type="text"] {
+    border: 2px solid aquamarine;
+}
+
+/* COMPONENTES VISUALES */
+
+#logo {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#Inicio {
+    /* 3. float: left */
+    float: left; 
+    margin: 1% 15%;
+    /* 2. position: relative */
+    position: relative; 
+    background-color: rgba(31, 32, 31, 0.507);
+    color: white;
+    padding: 2%;
+}
+
 aside {
     /* 3. float y clear: Añadimos clear: both para que ignore los floats del logo y se centre */
     clear: both; 
@@ -103,6 +288,7 @@ aside {
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
+
 aside img {
     clear: both;
     width: 100%; 
@@ -112,43 +298,25 @@ aside img {
     border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-ul > li {
-    list-style-type: square;
-    margin-bottom: 5px;
-}
-
-input[type="submit"] {
-    background-color: green;
-    color: white;
-    cursor: pointer;
-    border: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    /* 7. box-shadow */
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3); 
-}
-
-p::first-letter {
-    font-size: 20px;
-    color: rgb(230, 190, 13);
-    font-weight: bold;
-}
-
-#logo {
+.banner-promo {
+    width: 200px;
+    height: 100px;
+    background-color: gold;
+    margin: 20px auto;
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin: 20px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.5s, background-color 0.5s;
 }
-#Inicio {
-    /* 3. float: left */
-    float: left; 
-    margin: 1% 15%;
-    /* 2. position: relative */
-    position: relative; 
-    background-color: rgba(31, 32, 31, 0.507);
-    color: white;
-    padding: 2%;
+
+.banner-promo:hover {
+    transform: rotate(5deg) scale(1.05);
+    background-color: orange;
 }
+
+/* REGIONES */
 
 .region {
     max-width: 800px;           /* Evita que las líneas sean demasiado largas y cansen la vista */
@@ -182,192 +350,6 @@ p::first-letter {
     box-shadow: 10px 10px 20px rgba(0,0,0,0.3);
 }
 
-footer > p {
-    color: #333;
-    font-weight: bold;
-}
-
-input[type="text"] {
-    border: 2px solid aquamarine;
-}
-
-nav a:hover {
-    color: tomato;
-    transition: 0.3s all ease;
-    transform: scale(1.1); 
-}
-
-h1::first-letter {
-    font-size: 150%;
-    color: darkred;
-}
-
-
-nav {
-    background: rgba(255, 255, 255, 0.1); 
-    backdrop-filter: blur(10px); 
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px; /* 6. border-radius */
-    padding: 20px;
-    
-    /* 1. Posicionament display: flex */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    max-width: 80%;
-    
-    /* 2. position: relative */
-    position: relative; 
-    margin: 20px auto;
-    
-    /* 7. box-shadow */
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
-}
-
-nav a {
-    /* 1. display: inline-block */
-    display: inline-block;
-    text-decoration: none;
-    color: white; 
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: all 0.3s ease; 
-    background: rgba(0, 0, 0, 0.2);
-}
-
-nav a, .dropbtn {
-    font-family: 'Pokemonfont', sans-serif;
-    font-size: 1rem;
-}
-
-form {
-    /* 10. radial-gradient: Aplicado al fondo del formulario */
-    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
-    padding: 40px;
-    border-radius: 15px; /* 6. border-radius */
-    
-    /* 11. border-image: Borde decorativo para cumplir requisito */
-    border: 5px solid;
-    border-image: linear-gradient(to right, #444, #888) 1;
-    
-    backdrop-filter: blur(5px);
-    max-width: 600px;
-    margin: 20px auto;
-}
-input, textarea, select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    /* 1. display block*/
-    display: block; 
-}
-label + input {
-    margin-bottom: 20px;
-}
-
-tr:nth-child(odd) {
-    background-color: salmon;
-}
-tr:nth-child(even) {
-    background-color: silver;
-}
-
-.banner-promo {
-    width: 200px;
-    height: 100px;
-    background-color: gold;
-    margin: 20px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.5s, background-color 0.5s;
-}
-
-.banner-promo:hover {
-    transform: rotate(5deg) scale(1.05);
-    background-color: orange;
-}
-
-footer {
-    margin-top: 50px;
-    text-align: center;
-    padding-bottom: 20px;
-}
-
-footer p, footer small {
-    color: white !important;
-    font-weight: bold;
-}
-
-/* REGIONES */
-
-.dropdown {
-    position: relative;
-    display: inline-block; 
-}
-
-.dropbtn {
-    background-color: transparent;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-        /* 1. display: inline-block */
-    display: inline-block;
-    text-decoration: none;
-    color: white; 
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: all 0.3s ease; 
-    background: rgba(0, 0, 0, 0.2);
-    font-family: 'Pokemonfont', sans-serif;
-    font-size: 1rem;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
-    border-radius: 8px; 
-    
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block; 
-    margin: 0; 
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-    color: tomato;
-}
-
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    color: tomato;
-}
-
-
-
 /* VIDEOS */
 
 .titulo-videos {
@@ -385,13 +367,13 @@ footer p, footer small {
 }
 
 video {
-    width: 45%; 
-    min-width: 320px; 
+    width: 100%; /* Ocupa el ancho de su contenedor video-item */
+    max-width: 600px; /* Para que no se haga gigante en pantallas grandes */
     border: 5px solid white;
     border-radius: 15px; 
     box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
     background-color: #000;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.4s ease;
 }
 
 video:hover {
@@ -405,6 +387,21 @@ video + p {
     color: white;
     font-weight: bold;
     margin-top: 10px;
+}
+
+.video-item {
+    flex: 1 1 45%; /* Esto hace que se pongan dos vídeos por fila */
+    min-width: 320px; 
+    max-width: 600px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.video-item p {
+    color: white; /* Para que se lea sobre tu fondo oscuro */
+    font-weight: normal;
+    margin-top: 15px;
+    line-height: 1.4;
 }
 
 /* TABLA DE TIPOS */
@@ -466,6 +463,14 @@ td:nth-child(5) {
     font-weight: bold;
 }
 
+tr:nth-child(odd) {
+    background-color: salmon;
+}
+
+tr:nth-child(even) {
+    background-color: silver;
+}
+
 @media (max-width: 768px) {
     table {
         font-size: 12px;
@@ -475,4 +480,154 @@ td:nth-child(5) {
         width: 18px;
         height: 18px;
     }
+}
+
+/* POKEDEX */
+main.pokedex-page {
+    background: radial-gradient(circle at 20% 20%, #ff4d4d 0%, #cc0000 50%, #800000 100%);
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border-radius: 30px;
+    border: 10px solid #333;
+    padding: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    margin: 20px auto;
+}
+
+@keyframes led-blink {
+    0%, 100% { opacity: 1; filter: brightness(1.2) drop-shadow(0 0 5px currentColor); }
+    50% { opacity: 0.5; filter: brightness(0.8); }
+}
+
+.container-pokedex {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 40px; 
+    padding: 50px 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Tarjeta Estilo Pokedex */
+.pokedex-page .pkmn-card {
+    background: #1a1a1a; 
+    border-radius: 10px 50px 10px 10px; 
+    border: 4px solid #333;
+    border-bottom: 8px solid #111;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pokedex-page .pkmn-card:hover {
+    transform: translateY(-15px);
+    border-color: #00ffcc;
+    box-shadow: 0 0 20px rgba(0,255,204,0.3);
+}
+
+/* Pantalla de la imagen */
+.pokedex-page .pkmn-card img {
+    background: #4ab5a6; 
+    border: 6px solid #dedede;
+    border-radius: 5px;
+    padding: 15px;
+    width: 100%;
+    margin: 15px auto;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.6);
+}
+
+/* Título del Pokemon */
+.pokedex-page .pkmn-card h3 {
+    color: #00ffcc;
+    background: #000;
+    padding: 10px;
+    margin: 15px 0;
+    font-family: 'PokemonFont', Arial, sans-serif;
+    text-shadow: 0 0 8px #00ffcc;
+}
+
+.pokedex-page .competitivo-info {
+    text-align: left;
+    margin-top: 15px;
+    border-top: 1px solid #444; 
+    padding-top: 15px;
+}
+
+/* Rol, Naturaleza y Habilidad (Ahora visibles) */
+.pokedex-page .competitivo-info p {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+    margin: 12px 0;
+    color: #e6e4de;
+    display: flex; 
+    align-items: center; /* Alinea verticalmente los textos */
+    justify-content: flex-start; /* Todo empieza a la IZQUIERDA */
+    gap: 10px; /* Espacio fijo de 10px entre título y dato */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    padding-bottom: 4px;
+}
+
+/* Etiquetas internas (las palabras en negrita) */
+.pokedex-page .competitivo-info p strong {
+    font-family: 'PokemonFont', sans-serif;
+    color: #00ffcc; 
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0; 
+}
+
+.pokedex-page .competitivo-info p span {
+    font-weight: bold;
+    color: #e6e4de; 
+    letter-spacing: 0.5px;
+}
+
+
+/* Lista de Stats */
+.pokedex-page .stats-sugeridos {
+    list-style: none;
+    padding: 12px;
+    margin-top: 15px;
+    background: #252525; 
+    border-radius: 12px;
+    font-size: 0.9rem;
+    border-left: 5px solid #00ffcc;
+    color: #ffffff;
+}
+
+.pokedex-page .stats-sugeridos li {
+    margin-bottom: 5px;
+}
+
+/* Número del Pokémon */
+.pokedex-page .pkmn-number {
+    font-weight: bold;
+    color: #ff0000;
+    font-size: 3rem;
+    font-family: 'Courier New', monospace;
+    animation: led-blink 2s infinite ease-in-out;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+footer > p {
+    color: #333;
+    font-weight: bold;
+}
+
+footer p, footer small {
+    color: white !important;
+    font-weight: bold;
 }
