@@ -8,7 +8,7 @@
 }
 
 @font-face {
-    font-family: 'PokemonTitulo'; 
+    font-family: 'PokemonTitulo';
     src: url('../fonts/Pokemon\ Solid.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -20,13 +20,13 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+
 body {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../Imágenes/fondo.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-
     display: block; 
     padding: 3%;
 }
@@ -48,10 +48,11 @@ h1::first-letter {
     color: darkred;
 }
 
+  /* Lo siguiente lo hemos implementado para hacer responsive la web */
 h1 img {
     display: block;      /* Permite que margin: auto funcione */
     margin: 0 auto;      /* La centra perfectamente */
-    max-width: 80%;      /* En moviles ocupará el 80% del ancho, nunca el 100% */
+    max-width: 80%;      /* En móviles ocupará el 80% del ancho, nunca el 100% */
     height: auto !important; /* El !important obliga a ignorar cualquier altura fija anterior */
     filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.5));
 }
@@ -93,6 +94,7 @@ nav {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     padding: 20px;
+    
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -153,6 +155,7 @@ nav a:hover {
     font-size: 1rem;
 }
 
+  /* Ajusta el contenido del desplegable de Regiones y lo superpone a lo que haya debajo */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -191,8 +194,8 @@ nav a:hover {
 form {
     background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
     padding: 40px;
-    border-radius: 15px;
-
+    border-radius: 15px; /* 6. border-radius */
+    
     border: 5px solid;
     border-image: linear-gradient(to right, #444, #888) 1;
     
@@ -240,7 +243,6 @@ input[type="text"] {
 #Inicio {
     float: left; 
     margin: 1% 15%;
-
     position: relative; 
     background-color: rgba(31, 32, 31, 0.507);
     color: white;
@@ -248,7 +250,7 @@ input[type="text"] {
 }
 
 aside {
-
+    /* 3. float y clear: Añadimos clear: both para que ignore los floats del logo y se centre */
     clear: both; 
     float: none;           
     
@@ -264,7 +266,6 @@ aside {
     max-width: 900px;      
     padding: 15px;
     background: rgba(255, 255, 255, 0.1);
-
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
@@ -278,67 +279,43 @@ aside img {
     border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-#boton-enviar-pokemon {
-    /* Dimensiones y Centrado */
-    display: block;
-    width: 100%;
-    max-width: 300px;
-    margin: 30px auto;
-    padding: 15px;
-
-    /* Estilo Visual (Inspirado en PokeMMO) */
-    background: linear-gradient(to bottom, #ffcc00 0%, #d4ac00 100%);
-    color: #000;
-    font-family: 'Arial Black', sans-serif;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: center;
-
-    /* Bordes y Sombra (Efecto 3D) */
-    border: 3px solid #333;
-    border-radius: 8px;
-    box-shadow: 0 5px 0 #856a00, 0 8px 15px rgba(0,0,0,0.2);
-    
-    /* Interactividad */
+.banner-promo {
+    width: 200px;
+    height: 100px;
+    background-color: gold;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
     cursor: pointer;
-    transition: all 0.1s ease;
-    outline: none;
+    transition: transform 0.5s, background-color 0.5s;
 }
 
-/* Efecto al pasar el ratón: Brillo */
-#boton-enviar-pokemon:hover {
-    background: linear-gradient(to bottom, #ffe066 0%, #ffcc00 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 7px 0 #856a00, 0 10px 20px rgba(0,0,0,0.3);
-}
-
-/* Efecto al hacer clic: Se hunde */
-#boton-enviar-pokemon:active {
-    transform: translateY(4px);
-    box-shadow: 0 1px 0 #856a00;
-    background: #d4ac00;
+.banner-promo:hover {
+    transform: rotate(5deg) scale(1.05);
+    background-color: orange;
 }
 
 /* REGIONES */
 
 .region {
-    max-width: 800px;           /* Evita que las líneas sean demasiado largas*/
+    max-width: 800px;           /* Evita que las líneas sean demasiado largas */
     margin: 20px auto;          /* Centra el bloque */
     padding: 25px;
     background-color: #f9f9f9;
-    border-radius: 12px;     
+    border-radius: 12px;        /* Bordes suaves */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra muy sutil */
-    border-left: 5px solid #ff1f1f;
+    border-left: 5px solid #ff1f1f; 
 }
 
 .region p {
     font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.1rem;      
     line-height: 1.7;           /* Espaciado entre líneas */
-    color: #333333; 
+    color: #333333;          
     letter-spacing: -0.01em;    /* Ajuste fino para fuentes modernas */
-    text-align: justify;        /* Opcional: alinea el texto por ambos lados */
+    text-align: justify;        /* Alinea el textop por ambos lados */
     hyphens: auto;              /* Corta palabras si es necesario */
 }
 
@@ -569,8 +546,8 @@ main.pokedex-page {
     margin: 12px 0;
     color: #e6e4de;
     display: flex; 
-    align-items: center; /* Alinea verticalmente los textos */
-    justify-content: flex-start; /* Todo empieza a la IZQUIERDA */
+    align-items: center; 
+    justify-content: flex-start; 
     gap: 10px; /* Espacio fijo de 10px entre título y dato */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
     padding-bottom: 4px;
